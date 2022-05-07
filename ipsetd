@@ -1,0 +1,26 @@
+#!/bin/bash
+
+IPSET="/usr/sbin/ipset"
+PRNAME=`basename $0`
+
+if [ -z "$1" ]; then
+    echo "Error: please, select mode (--help for more info)"
+    exit
+elif [ "$1" == "--help" ]; then
+    echo "Usage: $PRNAME [iplistname] [domain]"
+    echo "  iplistname - existing ipset list hash:ip"
+    echo "       (For creation: ipset create LIST hash:ip)"
+    echo "  domain        - domain name to add to the list"
+    exit
+elif [ -z "$2" ]; then
+    echo "Error: please, select mode (--help for more info)"
+    exit
+fi
+
+ip=`dig +short $IPDOMAIN`
+
+for n in $ip
+do
+  $IPSET add -! $IPLIST $n
+done
+
