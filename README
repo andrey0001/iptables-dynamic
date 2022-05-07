@@ -1,4 +1,4 @@
-*** Use iptables with ipset and dymanic ip-s.
+# Use iptables with ipset and dymanic ip-s.
 
 Small sripts to use with iptables for dynamic ip.
 
@@ -13,10 +13,10 @@ Create new ipset list "trust-ip": ipset create trust-ip hash:ip
 Run trustlist.sh
 
 Add rule to iptables:
-iptables -I INPUT -m set --match-set trust-ip src -j ACCEPT
+> iptables -I INPUT -m set --match-set trust-ip src -j ACCEPT
 
 Then add cron job:
-*/5 * * * * /root/bin/trustlist.sh trust-ip
+> */5 * * * * /root/bin/trustlist.sh trust-ip
 
 Every 5 min list will be renewed 
 
