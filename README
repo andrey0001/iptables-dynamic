@@ -1,3 +1,5 @@
+*** Use iptables with ipset and dymanic ip-s.
+
 Small sripts to use with iptables for dynamic ip.
 
 ipsetd - add ip of domain to ipset list (even if domain has more that one ip) . Check path of ipset programm inside.
