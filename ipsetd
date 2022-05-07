@@ -18,6 +18,9 @@ elif [ -z "$2" ]; then
     exit
 fi
 
+IPLIST=$1
+IPDOMAIN=$2
+
 ip=`dig +short $IPDOMAIN`
 
 for n in $ip
