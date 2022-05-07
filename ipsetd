@@ -25,6 +25,6 @@ ip=`dig +short $IPDOMAIN`
 
 for n in $ip
 do
-  $IPSET add -! $IPLIST $n
+  $IPSET add -q -! $IPLIST $n
 done
 
