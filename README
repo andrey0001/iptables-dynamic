@@ -10,6 +10,7 @@ Create new ipset list "trust-ip": ipset create trust-ip hash:ip
 
 Run trustlist.sh
 
+Add rule to iptables:
 iptables -I INPUT -m set --match-set trust-ip-rg src -j ACCEPT
 
 Then add cron job:
