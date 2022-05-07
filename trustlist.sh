@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author Andrey Sorokin aka shadow_alone
 
 #Set path for ipset and ipsetd
 IPSET="/usr/sbin/ipset"
