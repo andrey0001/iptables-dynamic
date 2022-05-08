@@ -3,8 +3,10 @@
 Small sripts to use with iptables for dynamic ip.
 
 ipsetd - add ip of domain to ipset list (even if domain has more that one ip) . Check path of ipset programm inside.
+> ipsetd (listname) (domain)
 
 trustlist.sh - add multiple domains to ipset. Also for use with cron. You can customize ipset list name by cli argument 1. By default name is trust-ip
+> trustlist.sh [listname]
 
 Check and edit DomainsArray in trustlist.sh before use
 
