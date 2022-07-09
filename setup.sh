@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt update && apt install iptables-persistent ipset-persistent
+apt update && apt install -y iptables-persistent ipset-persistent
 
 DIR1="/root/bin"
 
