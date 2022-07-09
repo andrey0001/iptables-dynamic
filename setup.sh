@@ -10,7 +10,7 @@ cp ipsetd $DIR1/
 cp trustlist.sh $DIR1/
 
 ipset create -! trust-ip-rg hash:ip
-
+ipset save >/etc/iptables/ipsets
 iptables -I INPUT -m set --match-set trust-ip-rg src -j ACCEPT
 
 cat <<EOT > /etc/cron.d/trustlist
