@@ -14,7 +14,7 @@ ipset create -! trust-ip-rg hash:ip
 iptables -I INPUT -m set --match-set trust-ip-rg src -j ACCEPT
 
 cat <<EOT > /etc/cron.d/trustlist
-1-59/5 * * * * $DIR1/trustlist.sh trust-ip-rg
+1-59/5 * * * * root $DIR1/trustlist.sh trust-ip-rg
 EOT
 
 
