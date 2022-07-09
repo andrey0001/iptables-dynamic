@@ -6,11 +6,11 @@ IPSET="/usr/sbin/ipset"
 IPSETD="/root/bin/ipsetd"
 
 # Add domain to array
-DomainsArray=("dns.google.com" "cnn.com")
+DomainsArray=("rg.andrey.org" "ip.allow.andrey.im")
 
 # Use command-line argument to provide ipset list name (Default: trust-ip)
 REALLISTNAME=$1
-[ -z "$1" ] && REALLISTNAME="trust-ip"
+[ -z "$1" ] && REALLISTNAME="trust-ip-rg"
 
 # Creation of temporary ipset list name
 LISTNAME="list-"`date +%s`
