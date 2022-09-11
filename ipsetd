@@ -25,6 +25,6 @@ ip=`dig +short $IPDOMAIN`
 
 for n in $ip
 do
-  $IPSET add -q -! $IPLIST $n
+  [[ "$n" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && $IPSET add -q -! $IPLIST $n
 done
 
