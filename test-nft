@@ -1,0 +1,29 @@
+#!/bin/bash
+# Author Andrey Sorokin aka shadow_alone
+
+#Set path for ipset and ipsetd
+IPNFT="/usr/sbin/nft"
+IPDIG="/usr/bin/dig"
+
+# Add domain to array
+DomainsArray=("rg.andrey.org" "ip.allow.andrey.im")
+
+# Use command-line argument to provide ipset list name (Default: trust-ip)
+REALLISTNAME=$1
+[ -z "$1" ] && REALLISTNAME="home-rg-ip"
+
+# Flush NFT set
+$IPNFT flush set filter $REALLISTNAME
+
+
+for str in ${DomainsArray[@]}; do
+
+                ip=`$IPDIG +short $str`
+
+                for n in $ip
+                do
+                  [[ "$n" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && $IPNFT add element ip filter $REALLISTNAME { $n }
+
+                done
+
+done
